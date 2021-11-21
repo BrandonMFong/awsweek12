@@ -14,7 +14,7 @@ resource "aws_security_group" "week12-https-sg" {
     # Suggested by professor
     ipv6_cidr_blocks = []
     prefix_list_ids  = []
-    security_groups  = [aws_security_group.week12-ssh-pri-sg.id]
+    security_groups  = []
     self             = false
   }]
 

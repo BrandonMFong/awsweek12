@@ -15,11 +15,12 @@
   }
 }*/
 
-# IAM profile ref
-resource "aws_iam_instance_profile" "week12-profile-ref" {
-  name = "week12-profile-ref"
-  role = aws_iam_role.week12-role.name
-  tags = {
-    Name = "week12-profile-ref"
-  }
-}
+## IAM profile ref
+#resource "aws_iam_instance_profile" "week12-profile-ref" {
+#  name = "week12-profile-ref"
+#  role = aws_iam_role.week12-role.name
+#  tags = {
+#    Name = "week12-profile-ref"
+#  }
+#}
+
