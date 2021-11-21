@@ -62,18 +62,18 @@ data "aws_iam_policy_document" "lambda-iam-policy" {
 }
 
 # Brando addition start 
-data "aws_iam_policy_document" "lambda-iam-policy-1" {
-  statement {
-    sid    = "Week10LambdaS3"
-    effect = "Allow"
-    actions = [
-      "s3:GetObject"
-    ]
-    resources = [
-      "${aws_s3_bucket.ece592-week12-brando.arn}/*"
-    ]
-  }
-}
+#data "aws_iam_policy_document" "lambda-iam-policy-1" {
+#  statement {
+#    sid    = "Week10LambdaS3"
+#    effect = "Allow"
+#    actions = [
+#      "s3:GetObject"
+#    ]
+#    resources = [
+#      "${aws_s3_bucket.ece592-week12-brando.arn}/*"
+#    ]
+#  }
+#}
 
 data "aws_iam_policy_document" "lambda-iam-policy-2" {
   statement {
