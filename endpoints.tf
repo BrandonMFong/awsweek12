@@ -55,21 +55,3 @@ resource "aws_vpc_endpoint" "week12-ec2-ep" {
   }
 }
 
-# SQS
-resource "aws_vpc_endpoint" "week12-sqs-ep" {
-  vpc_id            = aws_vpc.week12-vpc.id
-  service_name      = "com.amazonaws.us-east-1.sqs"
-  vpc_endpoint_type = "Interface"
-  subnet_ids = [aws_subnet.week12-pri-a.id, aws_subnet.week12-pri-b.id]
-
-  security_group_ids = [
-    aws_security_group.week12-https-sg.id,
-  ]
-
-  private_dns_enabled = true
-
-  tags = {
-    Environment = "SQS Endpoint"
-  }
-}
-
