@@ -135,24 +135,24 @@ resource "aws_iam_role_policy_attachment" "week12-lambda-automation-role" {
 }
 
 
-resource "aws_lambda_function" "lambda" {
-  # This file contains the code for our Lambda.
-  filename      = "lambda_code.zip"
-  function_name = "week12-lambda"
-  role          = aws_iam_role.lambda-iam-role.arn
-
-  # This is the name of the file followed by the name of the function.
-  handler = "lambda_code.lambda_handler"
-
-  # This tells Terraform whether the code has changed or not.
-  source_code_hash = filebase64sha256("lambda_code.zip")
-
-  runtime = "python3.9"
-  timeout = 10
-
-  environment {
-    variables = {
-      week = "week12"
-    }
-  }
-}
+#resource "aws_lambda_function" "lambda" {
+#  # This file contains the code for our Lambda.
+#  filename      = "lambda_code.zip"
+#  function_name = "week12-lambda"
+#  role          = aws_iam_role.lambda-iam-role.arn
+#
+#  # This is the name of the file followed by the name of the function.
+#  handler = "lambda_code.lambda_handler"
+#
+#  # This tells Terraform whether the code has changed or not.
+#  source_code_hash = filebase64sha256("lambda_code.zip")
+#
+#  runtime = "python3.9"
+#  timeout = 10
+#
+#  environment {
+#    variables = {
+#      week = "week12"
+#    }
+#  }
+#}
