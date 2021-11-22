@@ -192,3 +192,29 @@ resource "aws_security_group" "week12-ssh-sg-v2" {
   }
 }
 
+# Security group for db
+resource "aws_security_group" "week12-rds-sg" {
+  name        = "week12-rds-sg"
+  description = "DB Security group for week 12"
+  vpc_id      = aws_vpc.week12-vpc.id
+
+  ingress = [{
+    description = "SSH from VPC"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+    # Suggested by professor
+    ipv6_cidr_blocks = []
+    prefix_list_ids  = []
+    security_groups  = []
+    self             = false
+  }]
+
+  egress = []
+
+  tags = {
+    Name = "DB security group Week 12"
+  }
+}
