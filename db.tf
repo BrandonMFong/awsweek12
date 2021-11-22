@@ -22,5 +22,13 @@ resource "aws_rds_cluster" "week12-rds" {
   skip_final_snapshot     = true 
   db_subnet_group_name    = aws_db_subnet_group.week12-db-subnet-group.name
   vpc_security_group_ids  = [aws_security_group.week12-rds-sg.id]
+  
+  scaling_configuration {
+    auto_pause               = true
+    max_capacity             = 2
+    min_capacity             = 1
+    seconds_until_auto_pause = 300
+    timeout_action           = "ForceApplyCapacityChange"
+  }
 }
 
