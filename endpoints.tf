@@ -37,3 +37,7 @@ resource "aws_security_group" "week12-https-sg" {
   }
 }
 
+output "week12-rds-endpoint" {
+  value = aws_rds_cluster.week12-rds.endpoint
+}
+
