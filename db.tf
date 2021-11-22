@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "week12-db-subnet-group" {
   name       = "wee12-db-subnet-group"
-  subnet_ids = [aws_subnet.week12-pri-a.id]
+  subnet_ids = [aws_subnet.week12-pri-a.id, aws_subnet.week12-pri-b.id]
 
   tags = {
     Name = "week12 db subnet"
@@ -13,7 +13,7 @@ resource "aws_rds_cluster" "week12-rds" {
   engine                  = "aurora-mysql"
   engine_mode 		  = "serverless"
   #engine_version          = "5.7.mysql_aurora.2.03.2"
-  #availability_zones      = ["us-west-2a", "us-west-2b", "us-west-2c"]
+  availability_zones      = ["us-east-1a"]
   database_name           = "week12_rds"
   master_username         = "admin"
   master_password         = "secret123"
